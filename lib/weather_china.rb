@@ -31,7 +31,7 @@ class WeatherChina
   def forecast
     forecasts = []
     (1..6).each do |i|
-      temp = @forecast.fetch("img#{i * 2}", '')
+      temp = @forecast.fetch("temp#{i * 2}", '')
       temps = temp.split '~'
       forecasts << {
         index: i,
