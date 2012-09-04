@@ -31,7 +31,7 @@ class WeatherChina
   def forecast
     forecasts = []
     (1..6).each do |i|
-      temp = @forecast.fetch("temp#{i * 2}", '')
+      temp = @forecast.fetch("temp#{i}", '')
       temps = temp.split '~'
       forecasts << {
         index: i,
