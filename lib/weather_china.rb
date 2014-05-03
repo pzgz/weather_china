@@ -23,6 +23,7 @@ class WeatherChina
       temp: @current.fetch('temp', nil),
       humidity: @current.fetch('SD', nil),
       icon: wrap_icon(@forecast.fetch('img_single', nil)),
+      icon_code: @forecast.fetch('img_single', nil),
       wind: "#{@current.fetch('WD')}#{@current.fetch('WS')}",
       time: @current.fetch('time', nil)
     } unless (@current.empty? or @forecast.empty?)
@@ -37,8 +38,10 @@ class WeatherChina
         index: i,
         condition: @forecast.fetch("weather#{i}", nil),
         wind: @forecast.fetch("wind#{i}", nil),
-        icon_1: wrap_icon(@forecast.fetch("img#{i * 2 -1}", nil)),
+        icon_1: wrap_icon(@forecast.fetch("img#{i * 2 - 1}", nil)),
+        icon_code_1: @forecast.fetch("img#{i * 2 - 1}", nil),
         icon_2: wrap_icon(@forecast.fetch("img#{i * 2}", nil)),
+        icon_code_2: @forecast.fetch("img#{i * 2}", nil),
         icon_title_1: @forecast.fetch("img_title#{i * 2 - 1}", nil),
         icon_title_2: @forecast.fetch("img#{i * 2}", nil) === '99' ? nil : @forecast.fetch("img_title#{i * 2}", nil),
         temp: temp,
