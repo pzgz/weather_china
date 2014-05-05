@@ -13,7 +13,8 @@ class WeatherChina
     # http://www.weather.com.cn/data/sk/101010100.html
     @current = parse_json(open("http://www.weather.com.cn/data/sk/#{@city_id}.html").read)["weatherinfo"] rescue {}
     # http://m.weather.com.cn/data/101010100.html
-    @forecast = parse_json(open("http://m.weather.com.cn/data/#{@city_id}.html").read)["weatherinfo"] rescue {}
+    # interface changed to: http://m.weather.com.cn/atad/101010100.html
+    @forecast = parse_json(open("http://m.weather.com.cn/atad/#{@city_id}.html").read)["weatherinfo"] rescue {}
   end
 
   def current
